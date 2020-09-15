@@ -1,6 +1,6 @@
 <template>
   <ul>
-    <li @click="setActive(spell)" v-for="spell in myspells" :key="spell.id">{{spell.name}}</li>
+    <li @click="setActive(spell)" v-for="spell in myspells" :key="spell._id">{{spell.name}}</li>
   </ul>
 </template>
 
@@ -11,7 +11,7 @@ export default {
     }
   },
   methods: {
-    setActive(){
+    setActive(spell){
       this.$store.dispatch("setActiveSpell", spell)
     }
   },

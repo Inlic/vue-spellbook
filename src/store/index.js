@@ -26,7 +26,8 @@ export default new Vuex.Store({
   },
   actions: {
     async setActiveSpell({commit},spell){
-      let res = await api.get('spells/'+spell.id)
+      let spellid = spell.name.split(' ').join('-').toLowerCase()
+      let res = await api.get('spells/'+spellid)
       commit("setActiveSpell",res.data)
     },
     async getSpells({commit}){
